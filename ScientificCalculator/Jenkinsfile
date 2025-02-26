@@ -34,19 +34,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                dir('ScientificCalculator') {  
+                    sh 'mvn clean package'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                dir('ScientificCalculator') {
+                    sh 'mvn test'
+                }
             }
         }
 
         stage('Containerize Application') {
             steps {
-                sh 'sudo docker build -t ${DOCKER_IMAGE} .'
+                dir('ScientificCalculator') {
+                    sh 'sudo docker build -t ${DOCKER_IMAGE} .'
+                }
             }
         }
 
@@ -74,7 +80,7 @@ pipeline {
                 }
             }
         }
-    }
+    }  
 
     post {
         success {
@@ -85,3 +91,4 @@ pipeline {
         }
     }
 }
+
