@@ -14,6 +14,7 @@ pipeline {
     stages {
         stage('Setup Permissions') {
             steps {
+                
                 script {
                     sh '''
                     echo "Granting permissions to Jenkins user.."
@@ -71,6 +72,7 @@ pipeline {
 
         stage('Run Ansible Deployment') {
             steps {
+                dir('ScientificCalculator'){
                 script {
                     sh '''
                     echo "Creating Ansible hosts.ini file..."
