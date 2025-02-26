@@ -70,6 +70,7 @@ pipeline {
 
         stage('Run Ansible Deployment') {
             steps {
+                dir('ScientificCalculator') {
                 script {
                     sh '''
                     echo "Creating Ansible hosts.ini file..."
@@ -77,6 +78,7 @@ pipeline {
                     echo "Running Ansible Playbook..."
                     ansible-playbook -i hosts.ini deploy.yml
                     '''
+                }
                 }
             }
         }
