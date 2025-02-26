@@ -14,7 +14,6 @@ pipeline {
     stages {
         stage('Setup Permissions') {
             steps {
-                
                 script {
                     sh '''
                     echo "Granting permissions to Jenkins user.."
@@ -35,25 +34,24 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('ScientificCalculator') {  // Navigate to the correct directory
-                sh 'mvn clean package'
-        }
-          
-        }
+                dir('ScientificCalculator') {  
+                    sh 'mvn clean package'
+                }
+            }
         }
 
         stage('Test') {
             steps {
-                dir ('ScientificCalculator'){
-                sh 'mvn test'
+                dir('ScientificCalculator') {
+                    sh 'mvn test'
                 }
             }
         }
 
         stage('Containerize Application') {
             steps {
-                dir('ScientificCalculator'){
-                sh 'sudo docker build -t ${DOCKER_IMAGE} .'
+                dir('ScientificCalculator') {
+                    sh 'sudo docker build -t ${DOCKER_IMAGE} .'
                 }
             }
         }
@@ -72,7 +70,6 @@ pipeline {
 
         stage('Run Ansible Deployment') {
             steps {
-                dir('ScientificCalculator'){
                 script {
                     sh '''
                     echo "Creating Ansible hosts.ini file..."
@@ -85,7 +82,7 @@ pipeline {
                 }
             }
         }
-    }
+    }  
 
     post {
         success {
@@ -96,3 +93,4 @@ pipeline {
         }
     }
 }
+
