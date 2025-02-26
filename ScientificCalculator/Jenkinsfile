@@ -34,7 +34,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('Calculator') {  // Navigate to the correct directory
+                dir('ScientificCalculator') {  // Navigate to the correct directory
                 sh 'mvn clean package'
         }
           
@@ -43,7 +43,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir ('Calculator'){
+                dir ('ScientificCalculator'){
                 sh 'mvn test'
                 }
             }
