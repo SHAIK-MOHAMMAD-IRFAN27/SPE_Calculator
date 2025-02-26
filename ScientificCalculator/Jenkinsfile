@@ -51,7 +51,9 @@ pipeline {
 
         stage('Containerize Application') {
             steps {
+                dir('ScientificCalculator'){
                 sh 'sudo docker build -t ${DOCKER_IMAGE} .'
+                }
             }
         }
 
