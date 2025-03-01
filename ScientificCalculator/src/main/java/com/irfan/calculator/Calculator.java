@@ -6,7 +6,7 @@ public class Calculator {
    
     public double squareRoot(double x) {
         if (x < 0) {
-            System.out.println("Input is negative Integer.Give only positive integers");
+            System.out.println("Input is a negative Integer.Give only positive integers");
             return -1;
         }
         return Math.sqrt(x);
