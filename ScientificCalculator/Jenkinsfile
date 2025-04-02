@@ -75,7 +75,7 @@ pipeline {
                     sh '''
                     echo "Creating Ansible hosts.ini file..."
 
-                    echo "Running Ansible Playbook..."
+                    echo "Running Ansible Playbook.."
                     ansible-playbook -i hosts.ini deploy.yml
                     '''
                 }
