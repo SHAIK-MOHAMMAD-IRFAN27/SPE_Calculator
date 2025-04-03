@@ -6,7 +6,7 @@ pipeline {
         PATH = "$PATH:$MAVEN_HOME/bin"
         DOCKER_IMAGE = "shaikirfan273/scientific-calculator"
         SERVER_IP = "172.16.231.25"
-        SSH_KEY_PATH = "/var/lib/jenkins/.ssh/id_rsa"
+
     }
 
     stages {
