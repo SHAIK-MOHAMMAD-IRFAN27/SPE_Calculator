@@ -8,7 +8,7 @@ public class CalculatorTest {
 
     @Test
     public void testSquareRoot() {
-        assertEquals(3.0, calc.squareRoot(16), 0.001);
+        assertEquals(4.0, calc.squareRoot(16), 0.001);
         assertEquals(5.0, calc.squareRoot(25), 0.001);  // Another perfect square
         assertEquals(0.0, calc.squareRoot(0), 0.001);   // Edge case: sqrt(0)
         
